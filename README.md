@@ -284,7 +284,9 @@ sudo -u good cat /tmp/asdf
 ls -al /tmp/asdf
 
 ls -lad `find / -type d ! -user $(whoami) -writable 2> /dev/null`
+
 find / \( -path /proc -o -path /sys \) -prune -o -type f ! -user $(whoami) -writable 2>/dev/null 
+
 find / \( -perm /4000 -o -type f -exec getcap {} + \) 2> /dev/nul
 
 
