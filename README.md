@@ -193,7 +193,7 @@ sudo apt-get install auditd audispd-plugins
 
 echo "test 123" > plik.txt
 
-sudo auditctl -w `pwd`/plik.txt -p rwxa -k log-plik
+sudo auditctl -w plik.txt -p rwxa -k log-plik
 
 cat plik.txt
 
@@ -218,7 +218,7 @@ echo I reside in the lower dir. > lower/lower-dir-file.txt
 
 echo I reside in the upper dir. > upper/upper-dir-file.txt
 
-sudo mount -t overlay overlay -o lowerdir=`pwd`/lower,upperdir=`pwd`/upper,workdir=`pwd`/work `pwd`/mnt
+sudo mount -t overlay overlay -o lowerdir=lower,upperdir=/upper,workdir=work mnt
 
 ls -la mnt/
 
